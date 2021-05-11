@@ -45,6 +45,9 @@ public class ItemBuilder {
         this.amount = amount;
     }
 
+    /**
+     * @param amount The amount of items to be included in the stack.
+     * */
     public ItemBuilder setAmount(int amount) {
         if (amount > this.material.getMaxStackSize() || amount <= 0)
             amount = 1;
@@ -52,11 +55,17 @@ public class ItemBuilder {
         return this;
     }
 
+    /**
+     * @param durability The amount of durability the item should have.
+     * */
     public ItemBuilder setDurability(short durability) {
         this.durability = durability;
         return this;
     }
 
+    /**
+     * @param material The material type of the item.
+     * */
     public ItemBuilder setMaterial(Material material) {
         if (material == null)
             material = Material.AIR;
@@ -64,12 +73,18 @@ public class ItemBuilder {
         return this;
     }
 
+    /**
+     * @param meta The ItemMeta of the item.
+     * */
     public ItemBuilder setMeta(ItemMeta meta) {
         if (meta != null)
             this.meta = meta;
         return this;
     }
 
+    /**
+     * @param name The display name of the item (without colors)
+     * */
     public ItemBuilder setDisplayName(String name) {
         if (name == null)
             name = material.name();
@@ -77,6 +92,10 @@ public class ItemBuilder {
         return this;
     }
 
+    /**
+     * @param name The display name of the item
+     * @param colorize If true, the name will be translated to include the proper color codes
+     * */
     public ItemBuilder setDisplayName(String name, boolean colorize) {
         if (name == null)
             name = material.name();
@@ -84,18 +103,28 @@ public class ItemBuilder {
         return this;
     }
 
+    /**
+     * @param lore The lore of the item
+     * */
     public ItemBuilder setLore(List<String> lore) {
         if (lore != null)
             this.lore = lore;
         return this;
     }
 
+    /**
+     * @param string The string that should be added to the end of the item's lore (withour colors)
+     * */
     public ItemBuilder addLore(String string) {
         if (string != null)
             this.lore.add(string);
         return this;
     }
 
+    /**
+     * @param string The string that should be added to the end of the item's lore
+     * @param colorize If true, the name will be translated to include the proper color codes
+     * */
     public ItemBuilder addLore(String string, boolean colorize) {
         if (string == null)
             return this;
@@ -103,12 +132,19 @@ public class ItemBuilder {
         return this;
     }
 
+    /**
+     * @param itemFlag The item flag that should be added to the item
+     * */
     public ItemBuilder addFlag(ItemFlag itemFlag) {
         if (itemFlag != null)
             this.itemFlags.add(itemFlag);
         return this;
     }
 
+    /**
+     * @param enchantment The enchantment that should be added to the item
+     * @param level The level of the enchantment to be added
+     * */
     public ItemBuilder addEnchantment(Enchantment enchantment, int level) {
         if (enchantment != null && level > 0)
             enchantments.put(enchantment, level);
@@ -171,6 +207,11 @@ public class ItemBuilder {
         return this.meta;
     }
 
+    /**
+     * Builds the item converting it from an ItemBuilder to an ItemStack.
+     *
+     * @return The final ItemStack.
+     * */
     public ItemStack build() {
         itemStack.setType(material);
         itemStack.setAmount(amount);
