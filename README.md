@@ -1,6 +1,8 @@
 # ItemBuilder
 A single class item utility builder that allows for single line item setting.
 
+# Instructions
+Create a new class in your project titled `ItemBuilder`. From there, all you have to do is reference the class.
 
 # Example usage
 
