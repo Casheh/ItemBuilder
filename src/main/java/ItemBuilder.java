@@ -115,34 +115,58 @@ public class ItemBuilder {
         return this;
     }
 
+    /*
+     * @return The material type of the ItemStack.
+     * */
     public Material getMaterial() {
         return this.material;
     }
 
+    /*
+     * @return The amount of items to be included in the stack.
+     * */
     public int getAmount() {
         return this.amount;
     }
 
+    /*
+     * @return The durability to be applied to the item.
+     * */
     public short getDurability() {
         return this.durability;
     }
 
+    /*
+     * @return The display name to be applied to the item.
+     * */
     public String getDisplayName() {
         return this.displayName;
     }
 
+    /*
+     * @return The list of lore to be applied to the item.
+     * */
     public List<String> getLore() {
         return this.lore;
     }
 
+    /*
+     * @return The list of ItemFlags to be applied to the item.
+     * */
     public List<ItemFlag> getItemFlags() {
         return this.itemFlags;
     }
 
+    /*
+    * @return A map of all enchantment to be applied to the item.
+    * */
     public Map<Enchantment, Integer> getEnchantments() {
         return this.enchantments;
     }
 
+    /*
+     * @return The ItemMeta to be applied to the item.
+     * */
     public ItemMeta getMeta() {
         return this.meta;
     }
@@ -163,8 +187,5 @@ public class ItemBuilder {
         itemStack.setItemMeta(meta);
         return itemStack;
     }
-
-
-
 
 }
