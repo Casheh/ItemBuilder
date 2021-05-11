@@ -1,13 +1,14 @@
-package net.casheh.itembuilder;
-
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ItemBuilder {
 
@@ -24,6 +25,8 @@ public class ItemBuilder {
     private List<String> lore = new ArrayList<>();
 
     private List<ItemFlag> itemFlags = new ArrayList<>();
+
+    private Map<Enchantment, Integer> enchantments = new HashMap<>();
 
     private ItemMeta meta;
 
@@ -100,9 +103,15 @@ public class ItemBuilder {
         return this;
     }
 
-    public ItemBuilder flag(ItemFlag itemFlag) {
+    public ItemBuilder addFlag(ItemFlag itemFlag) {
         if (itemFlag != null)
             this.itemFlags.add(itemFlag);
+        return this;
+    }
+
+    public ItemBuilder addEnchantment(Enchantment enchantment, int level) {
+        if (enchantment != null && level > 0)
+            enchantments.put(enchantment, level);
         return this;
     }
 
@@ -130,6 +139,10 @@ public class ItemBuilder {
         return this.itemFlags;
     }
 
+    public Map<Enchantment, Integer> getEnchantments() {
+        return this.enchantments;
+    }
+
     public ItemMeta getMeta() {
         return this.meta;
     }
@@ -145,6 +158,8 @@ public class ItemBuilder {
             meta.setDisplayName(displayName);
         if (lore.size() > 0)
             meta.setLore(lore);
+        if (enchantments.size() > 0)
+            itemStack.addUnsafeEnchantments(enchantments);
         itemStack.setItemMeta(meta);
         return itemStack;
     }
