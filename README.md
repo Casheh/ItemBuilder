@@ -14,3 +14,5 @@ ItemStack itemStack = new ItemBuilder(Material.BEACON)
                .setAmount(52)
                .build();
 ```
+# Supported versions
+This particular class has been tested on versions `1.12` through `1.14.4`. It may work on newer versions, but some methods used are deprecated in the newer Bukkit versions.
