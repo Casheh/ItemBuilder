@@ -1,3 +1,5 @@
+package net.casheh.pets.util;
+
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -35,6 +37,7 @@ public class ItemBuilder {
             material = Material.AIR;
         this.itemStack = new ItemStack(material);
         this.material = material;
+        this.amount = 1;
     }
 
     public ItemBuilder(Material material, int amount) {
@@ -194,8 +197,8 @@ public class ItemBuilder {
     }
 
     /**
-    * @return A map of all enchantment to be applied to the item.
-    * */
+     * @return A map of all enchantment to be applied to the item.
+     * */
     public Map<Enchantment, Integer> getEnchantments() {
         return this.enchantments;
     }
